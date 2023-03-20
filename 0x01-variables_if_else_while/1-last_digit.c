@@ -10,22 +10,23 @@
  */
 int main(void)
 {
-	int n;
+	int n, lastDigit;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	/* your code goes there */
-	if (n > 0)
+	lastDigit = n % 10;
+	if (lastDigit > 0)
 	{
-		printf("%d is positive\n", n);
+		printf("%d is positive\n", lastDigit);
 	}
-	else if (n == 0)
+	else if (lastDigit == 0)
 	{
-		printf("%d is zero\n", n);
+		printf("%d is zero\n", lastDigit);
 	}
 	else
 	{
-		printf("%d is negative\n", n);
+		printf("%d is negative\n", lastDigit);
 	}
 	return (0);
 }
