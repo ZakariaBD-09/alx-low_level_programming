@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- * positive_or_negative - a function that checks for positive or nigative numbers.
+ * positive_or_negative - check a number whether positive or nigative.
  * @i: the cheked number.
- *
  * Return: return 0.
  */
 
