@@ -15,7 +15,7 @@ void jack_bauer(void)
 			{
 				for (m = 0; m <= 9; m++)
 				{
-					ifi(H >= 2 && h >= 4)
+					if (H >= 2 && h >= 4)
 						break;
 					_putchar(H + 48);
 					_putchar(h + 48);
