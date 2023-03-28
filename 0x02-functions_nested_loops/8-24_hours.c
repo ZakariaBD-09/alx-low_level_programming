@@ -19,7 +19,7 @@ void jack_bauer(void)
 						break;
 					_putchar(H + 48);
 					_putchar(h + 48);
-					_putchar(38);
+					_putchar(58);
 					_putchar(M + 48);
 					_putchar(m + 48);
 					_putchar('\n');
