@@ -6,7 +6,7 @@
  * Return: return the length of the string.
  */
 
-int _strlen(char *s);
+int _strlen(char *s)
 {
 	int i;
 	int c;
