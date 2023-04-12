@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int count_words(char *str);
 int get_word_len(char *str);
@@ -13,58 +14,39 @@ void free_array(char **arr, int size);
  */
 char **strtow(char *str)
 {
-	char **words;
-	int num_words, word_len, i, j, k;
+	char **tab;
+	int i, j, k, len, words;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
-
-	num_words = count_words(str);
-
-
-	words = malloc((num_words + 1) * sizeof(char *));
-	if (words == NULL)
+	words = count_words(str);
+	tab = malloc((words + 1) * sizeof(char *));
+	if (tab == NULL)
 		return (NULL);
 
-
-	i = 0;
-	while (*str != '\0')
+	for (i = 0, j = 0; i < words; ++i)
 	{
+		while (str[j] && str[j] == ' ')
+			++j;
 
-		while (*str == ' ')
-			str++;
-
-
-		word_len = get_word_len(str);
-
-
-		words[i] = malloc((word_len + 1) * sizeof(char));
-		if (words[i] == NULL)
+		len = get_word_len(str + j);
+		tab[i] = malloc((len + 1) * sizeof(char));
+		if (tab[i] == NULL)
 		{
-
-			free_array(words, i);
-			free(words);
+			free_array(tab, i);
 			return (NULL);
 		}
 
-
-		for (j = 0, k = 0; j < word_len; j++, str++, k++)
-			words[i][k] = *str;
-
-
-		words[i][k] = '\0';
-
-
-		i++;
+		for (k = 0; k < len; ++k)
+			tab[i][k] = str[j + k];
+		tab[i][k] = '\0';
+		j += len;
 	}
+	tab[i] = NULL;
 
-
-	words[i] = NULL;
-
-	return (words);
+	return (tab);
 }
-
 
 /**
  * count_words - counts the number of words in a string
@@ -98,6 +80,7 @@ int count_words(char *str)
  *
  * Return: the length of the next word in str
  */
+
 int get_word_len(char *str)
 {
 	int len = 0;
