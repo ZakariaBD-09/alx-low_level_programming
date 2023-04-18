@@ -6,7 +6,7 @@
  * @d: pointer to the struct dog to print
  *
  * Return: void
- * */
+ */
 void print_dog(struct dog *d)
 {
 	if (d == NULL)
